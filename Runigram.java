@@ -14,7 +14,8 @@ public class Runigram {
 		// Tests the reading and printing of an image:
 		Color[][] tinypic = read("tinypic.ppm");
 		Color[][] ironman = read("ironman.ppm");
-		print(tinypic);
+		Color[][] eyes = read("eyes.ppm");
+		print(eyes);
 
 		// Creates an image which will be the result of various
 		// image processing operations:
@@ -22,10 +23,10 @@ public class Runigram {
 		Color[][] imageOut2;
 
 		// Tests the horizontal flipping of an image:
-		// imageOut = flippedHorizontally(tinypic);
+		imageOut = flippedHorizontally(eyes);
 		// imageOut = flippedVertically(tinypic);
-		imageOut = grayScaled(tinypic);
-		imageOut2 = blend(imageOut, tinypic, 0.5);
+		// imageOut = grayScaled(tinypic);
+		// imageOut2 = blend(imageOut, tinypic, 0.5);
 		// Color check = new Color(255, 0, 255);
 		// System.out.println(check);
 		// check = luminance(check);
@@ -33,17 +34,11 @@ public class Runigram {
 		// Color c1 = new Color(10, 20, 30);
 		// Color c2 = new Color(20, 70, 90);
 		// Color c3 = blend(c1, c2, 0.5);
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
 		// print(c3);
+		System.out.println();
 		print(imageOut);
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		print(imageOut2);
+
+		// print(imageOut2);
 
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.

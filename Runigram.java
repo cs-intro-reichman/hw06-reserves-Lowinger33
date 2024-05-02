@@ -15,7 +15,7 @@ public class Runigram {
 		Color[][] tinypic = read("tinypic.ppm");
 		Color[][] ironman = read("ironman.ppm");
 		Color[][] eyes = read("eyes.ppm");
-		print(eyes);
+		print(tinypic);
 
 		// Creates an image which will be the result of various
 		// image processing operations:
@@ -23,9 +23,9 @@ public class Runigram {
 		Color[][] imageOut2;
 
 		// Tests the horizontal flipping of an image:
-		imageOut = flippedHorizontally(eyes);
+		// imageOut = flippedHorizontally(eyes);
 		// imageOut = flippedVertically(tinypic);
-		// imageOut = grayScaled(tinypic);
+		imageOut = grayScaled(tinypic);
 		// imageOut2 = blend(imageOut, tinypic, 0.5);
 		// Color check = new Color(255, 0, 255);
 		// System.out.println(check);
@@ -103,7 +103,7 @@ public class Runigram {
 		Color[][] ans = new Color[image.length][image[0].length];
 		int x = 0;
 		for (int i = 0; i < image.length; i++) {
-			for (int j = image[i].length - 1; j >= 0; j = j - 1) {
+			for (int j = image[0].length - 1; j >= 0; j = j - 1) {
 				ans[i][j] = image[i][x];
 				x++;
 			}
@@ -135,10 +135,10 @@ public class Runigram {
 	// consisting
 	// the three values r = lum, g = lum, b = lum.
 	public static Color luminance(Color pixel) {
-		int r = (int) (0.299 * pixel.getRed());
-		int g = (int) (0.587 * pixel.getGreen());
-		int b = (int) (0.114 * pixel.getBlue());
-		int grey = r + b + g;
+		int r = pixel.getRed();
+		int g = pixel.getGreen();
+		int b = pixel.getBlue();
+		int grey = (int) ((0.299 * r) + (0.587 * g) + (0.114 * b));
 		Color ans = new Color(grey, grey, grey);
 		return ans;
 	}
